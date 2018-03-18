@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fyj.dao.SysUserDao">
+	
+	<select id="selectList" resultType="com.fyj.dto.SysUserVo" parameterType="com.fyj.entity.SysUser">
+		
+		SELECT
+			su.id as id,
+			su.user_name as userName,
+			su.real_name as realName,
+			su.password as password,
+			su.salt as salt,
+			su.locked as locked
+		FROM
+			sys_user su
+		<where>
+		<if test="userName != null and userName != ''">su.user_name=#{userName}</if>
+		<if test="realName != null and realName != ''">su.real_name=#{realName}</if>
+		<if test="password != null and password != ''">su.password=#{password}</if>
+		<if test="locked != null and locked != '' and locked !='0'">su.locked=#{locked}</if>
+		</where>
+	</select>
+	
+	<insert id="insert" parameterType="com.fyj.entity.SysUser">
+	   insert into sys_user(id,user_name,real_name,password,salt,locked) value(#{id},#{userName},#{realName},#{password}
+	                        ,#{salt},#{locked})
+	</insert>
+</mapper>
