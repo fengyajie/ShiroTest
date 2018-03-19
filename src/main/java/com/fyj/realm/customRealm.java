@@ -33,7 +33,9 @@ public class customRealm  extends AuthorizingRealm{
 	
 	@Autowired
 	private SysResourceService sysResourceService;
-	
+	/**
+	 *  ⁄»®
+	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		String userName = (String)principals.getPrimaryPrincipal();
@@ -45,6 +47,9 @@ public class customRealm  extends AuthorizingRealm{
 		return authorizationInfo;
 	}
 
+	/**
+	 * »œ÷§
+	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 		UsernamePasswordToken userNamePassword = (UsernamePasswordToken)token;
