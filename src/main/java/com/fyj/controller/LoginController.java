@@ -3,13 +3,13 @@ package com.fyj.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
@@ -18,12 +18,12 @@ public class LoginController {
 	/*@RequestMapping("/loginJsp")
 	public ModelAndView loginJsp(){
 		return new ModelAndView("/login");
-	}
+	}*/
 	
 	@RequestMapping("/unauthorizedJsp")
 	public ModelAndView unauthorizedJsp(){
 		return new ModelAndView("/refuse.jsp");
-	}*/
+	}
 	
 	@RequestMapping("/login")
 	@ResponseBody
