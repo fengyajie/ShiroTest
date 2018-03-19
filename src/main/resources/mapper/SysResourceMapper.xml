@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fyj.dao.SysResourceDao">
+	
+	<select id="selectById" resultType="com.fyj.dto.SysResourceVo" parameterType="com.fyj.entity.SysResource">
+		
+		SELECT
+			sre.id,
+			sre.permission
+		FROM
+			sys_resouce sre
+		<where>
+		<if test="id != null and id != ''">sr.id=#{id}</if>
+		</where>
+	</select>
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fyj.dao.SysRoleDao">
+	
+	<select id="selectById" resultType="com.fyj.dto.SysRoleVo" parameterType="com.fyj.entity.SysRole">
+		
+		SELECT
+			sr.id,
+			sr.role,
+			sr.description,
+			sr.resource_ids as resourceIds,
+			sr.available
+			
+		FROM
+			sys_role sr
+		<where>
+		<if test="id != null and id != ''">sr.id=#{id}</if>
+		</where>
+	</select>
+</mapper>

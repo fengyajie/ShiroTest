@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fyj.dao.SysUserRolesDao">
+	
+	<select id="findRoleIdsByUserId" resultType="com.fyj.dto.SysUserRolesVo" parameterType="com.fyj.entity.SysUserRoles">
+		
+		SELECT
+			sur.id,
+			sur.role_id as roleId
+			
+		FROM
+			sys_user_roles sur
+		<where>
+		<if test="userId != null and userId != ''">sur.user_id=#{userId}</if>
+		</where>
+	</select>
+</mapper>

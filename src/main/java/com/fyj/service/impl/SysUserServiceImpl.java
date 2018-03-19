@@ -11,7 +11,7 @@ import com.fyj.entity.SysUser;
 import com.fyj.service.SysUserService;
 
 @Service("sysUserServiceImpl")
-public class SysuserServiceImpl implements SysUserService {
+public class SysUserServiceImpl implements SysUserService {
 
 	@Autowired
 	private SysUserDao sysUserDao;

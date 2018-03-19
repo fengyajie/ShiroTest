@@ -1,6 +1,7 @@
 package com.fyj.realm;
 
 import java.util.List;
+import java.util.Set;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -11,12 +12,14 @@ import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fyj.dto.SysUserVo;
+import com.fyj.service.SysResourceService;
+import com.fyj.service.SysRoleService;
 import com.fyj.service.SysUserService;
 import com.fyj.util.Md5Util;
 
@@ -25,9 +28,21 @@ public class customRealm  extends AuthorizingRealm{
 	@Autowired
 	private SysUserService sysUserService;
 	
+	@Autowired
+	private SysRoleService sysRoleService;
+	
+	@Autowired
+	private SysResourceService sysResourceService;
+	
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-		return null;
+		String userName = (String)principals.getPrimaryPrincipal();
+		SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+		Set<String> roles = sysRoleService.findRoles(userName);
+		Set<String> permissions = sysResourceService.findPerimissions(userName);
+		authorizationInfo.setRoles(roles);
+		authorizationInfo.setStringPermissions(permissions);
+		return authorizationInfo;
 	}
 
 	@Override
