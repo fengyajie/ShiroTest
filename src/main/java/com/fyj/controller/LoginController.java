@@ -27,7 +27,7 @@ public class LoginController {
 	
 	@RequestMapping("/login")
 	@ResponseBody
-	public String login(HttpServletRequest request, ModelMap model){
+	public ModelAndView login(HttpServletRequest request, ModelMap model){
 		/*String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
 		
@@ -51,7 +51,7 @@ public class LoginController {
         if(model.containsAttribute("error")) {
         	model.remove("message");
         }
-        return "login";
+        return new ModelAndView("/login");
 	}
 	
 }

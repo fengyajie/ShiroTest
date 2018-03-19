@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.fyj.dao.SysResourceDao;
 import com.fyj.dao.SysRoleDao;
@@ -16,6 +17,7 @@ import com.fyj.service.SysResourceService;
 import com.fyj.service.SysUserRolesService;
 import com.fyj.service.SysUserService;
 
+@Service("sysResourceServiceImpl")
 public class SysResourceServiceImpl implements SysResourceService {
 
 	@Autowired

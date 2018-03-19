@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.fyj.dao.SysRoleDao;
 import com.fyj.dto.SysRoleVo;
@@ -14,6 +15,7 @@ import com.fyj.service.SysRoleService;
 import com.fyj.service.SysUserRolesService;
 import com.fyj.service.SysUserService;
 
+@Service("sysRoleServiceImpl")
 public class SysRoleServiceImpl implements SysRoleService {
 
 	@Autowired
