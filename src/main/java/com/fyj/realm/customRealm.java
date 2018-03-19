@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -17,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fyj.dto.SysUserVo;
 import com.fyj.service.SysUserService;
+import com.fyj.util.Md5Util;
 
 public class customRealm  extends AuthorizingRealm{
 
@@ -49,8 +51,12 @@ public class customRealm  extends AuthorizingRealm{
 				throw new LockedAccountException();
 			}
 			String salt = suVo.getSalt();
+			String passwordDigest = Md5Util.md5Degest(password+salt);
+			if(!passwordDigest.equals(suVo.getPassword())) {
+				throw new IncorrectCredentialsException();
+			}
 			String userNameStr = null;
-			info = new SimpleAuthenticationInfo(userNameStr,suVo.getPassword(),ByteSource.Util.bytes(salt),this.getName());
+			info = new SimpleAuthenticationInfo(userNameStr,password,this.getName());
 		}
 		
 		return info;
