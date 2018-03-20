@@ -53,10 +53,9 @@
 		<!-- <bean id="credentialsMatcher" class="com.fyj.realm.CredentialsMatcher">
 		</bean> -->
 		<!-- 相当于调用SecurityUtils.setSecurityManager(securityManager) -->  
-<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">  
-<property name="staticMethod"   
-value="org.apache.shiro.SecurityUtils.setSecurityManager"/>  
-    <property name="arguments" ref="securityManager"/>  
+        <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">  
+           <property name="staticMethod"  value="org.apache.shiro.SecurityUtils.setSecurityManager"/>  
+        <property name="arguments" ref="securityManager"/>  
 </bean>  
 
 <!-- 基于Form表单的身份验证过滤器,不配置也会注册此过滤器，表单中的用户账号，密码和loginUrl将采用默认值，建议配置 -->
