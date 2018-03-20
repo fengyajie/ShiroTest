@@ -26,20 +26,8 @@ public class LoginController {
 	}
 	
 	@RequestMapping("/login")
-	@ResponseBody
 	public ModelAndView login(HttpServletRequest request, ModelMap model){
-		/*String userName = request.getParameter("userName");
-		String password = request.getParameter("password");
 		
-		Subject subject = SecurityUtils.getSubject();
-		UsernamePasswordToken token = new UsernamePasswordToken(userName,password);
-		try{
-		  subject.login(token);
-		}catch(Exception e){
-			e.printStackTrace();
-			return new Result("ERROR","µÇÂ½Ê§°Ü");
-		}
-		return new Result("Ok","µÇÂ½³É¹¦");*/
 		Exception shiroLoginFailureEx = (Exception)request.getAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME);
 		if(shiroLoginFailureEx != null) {
 			model.addAttribute("error", shiroLoginFailureEx.getMessage());

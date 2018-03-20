@@ -30,7 +30,8 @@
               /css/** = anon
               /js/** = anon
               
-		       /login/** = anon
+               /login.jsp = anon <!-- 放过登录提交，避免登录死循环 -->
+		       /login = anon
 		       /refuse = anon
 		       /index = authc
 		       /logout = logout
