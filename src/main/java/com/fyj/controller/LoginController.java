@@ -3,12 +3,12 @@ package com.fyj.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -26,7 +26,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping("/login")
-	public ModelAndView login(HttpServletRequest request, ModelMap model){
+	public String login(HttpServletRequest request, ModelMap model){
 		
 		Exception shiroLoginFailureEx = (Exception)request.getAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME);
 		if(shiroLoginFailureEx != null) {
@@ -39,7 +39,16 @@ public class LoginController {
         if(model.containsAttribute("error")) {
         	model.remove("message");
         }
-        return new ModelAndView("/login");
+        return "login";
+	}
+	
+	@RequestMapping("/loginLogin")
+	public void loginLogin(HttpServletRequest request){
+		String userName = request.getParameter("userName");
+		String password = request.getParameter("password");
+		Subject subject = SecurityUtils.getSubject();
+		UsernamePasswordToken token = new UsernamePasswordToken(userName,password);
+		subject.login(token);
 	}
 	
 }
