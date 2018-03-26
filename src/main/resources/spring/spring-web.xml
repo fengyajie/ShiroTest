@@ -29,6 +29,7 @@
 	 	<property name="prefix" value="/WEB-INF/jsp/" />
 	 	<property name="suffix" value=".jsp" />
 	 </bean>
+	 
 	 <mvc:view-controller path="/" view-name="redirect:/index/indexJsp"/>
 	 <!-- 4.扫描web相关的bean -->
 	 <context:component-scan base-package="com.fyj.controller" />
