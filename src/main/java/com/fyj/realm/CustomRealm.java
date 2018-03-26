@@ -23,7 +23,7 @@ import com.fyj.service.SysRoleService;
 import com.fyj.service.SysUserService;
 import com.fyj.util.Md5Util;
 
-public class customRealm  extends AuthorizingRealm{
+public class CustomRealm  extends AuthorizingRealm{
 
 	@Autowired
 	private SysUserService sysUserService;
