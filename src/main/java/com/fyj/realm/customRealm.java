@@ -75,8 +75,7 @@ public class customRealm  extends AuthorizingRealm{
 			if(!passwordDigest.equals(suVo.getPassword())) {
 				throw new IncorrectCredentialsException();
 			}
-			String userNameStr = null;
-			info = new SimpleAuthenticationInfo(userNameStr,password,this.getName());
+			info = new SimpleAuthenticationInfo(userName,password,this.getName());
 		}
 		
 		return info;
