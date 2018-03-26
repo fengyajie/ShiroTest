@@ -25,7 +25,7 @@
     <property name="filters">
         <map>
             <!-- 将自定义 的FormAuthenticationFilter注入shiroFilter中-->
-            <entry key="authc" value-ref="formAuthenticationFilter" />
+            <entry key="authc" value-ref="myFormAuthenticationFilter" />
         </map>
     </property>
 		   <!-- 过虑器链定义，从上向下顺序执行，一般将/**放在最下边 -->
@@ -67,7 +67,7 @@ value="org.apache.shiro.SecurityUtils.setSecurityManager"/>
 </bean>  
 
 <!-- 基于Form表单的身份验证过滤器,不配置也会注册此过滤器，表单中的用户账号，密码和loginUrl将采用默认值，建议配置 -->
-<bean id="formAuthenticationFilter" class="com.fyj.filter.MyFormAuthenticationFilter">
+<bean id="myFormAuthenticationFilter" class="com.fyj.filter.MyFormAuthenticationFilter">
   <property name="usernameParam" value="userName"/>
   <property name="passwordParam" value="password"/>
   <property name="rememberMeParam" value="rememberMe"/>
