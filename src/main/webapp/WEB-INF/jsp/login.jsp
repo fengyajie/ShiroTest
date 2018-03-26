@@ -23,13 +23,13 @@
          <td><input id="password" name="password" type="password" /></td>
        </tr>
        <tr>
-         <td><a href="javascript:login()">登陆</a></td>
-        <!-- <td><input id="submit" type="submit" value="登录"/></td> -->
+         <!-- <td><a href="javascript:login()">登陆</a></td> -->
+        <td><input id="submit" type="submit" value="登录"/></td>
        </tr>
     </table>
   </form>
   <script>
-   function login(){
+   /* function login(){
      var userName = $("#userName").val();
      var password = $("#password").val();
      if(userName == null || userName ==''){
@@ -49,7 +49,7 @@
 	        console.log(data);
 	      }
 	    });
-  }
+  } */
   </script>
   </div>
 </body>

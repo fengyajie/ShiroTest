@@ -42,13 +42,13 @@ public class LoginController {
         return "login";
 	}
 	
-	@RequestMapping("/loginLogin")
+	/*@RequestMapping("/loginLogin")
 	public void loginLogin(HttpServletRequest request){
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
 		Subject subject = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken(userName,password);
 		subject.login(token);
-	}
+	}*/
 	
 }
