@@ -16,7 +16,7 @@
 		FROM
 			sys_role sr
 		<where>
-		<if test="id != null and id != ''">sr.id=#{id}</if>
+		sr.id=#{id}
 		</where>
 	</select>
 </mapper>
