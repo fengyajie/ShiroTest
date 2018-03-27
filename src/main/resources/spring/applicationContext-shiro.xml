@@ -47,7 +47,7 @@
 		       /success = anon
 		       /logout = logout
 		       <!--/**=authc 表示所有的url都需要权限认证，authc是shiro中一个过滤器的简写-->
-		       /** = authc
+		       /** = user,perms,roles
 		     </value>
 		   </property>
 		</bean>
