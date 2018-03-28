@@ -4,9 +4,40 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+ <script  type="text/javascript" src="../js/jquery-3.3.1.js"></script>  
+ <script  type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<title>首页</title>
+<script>
+function queryUser(){
+   $.ajax({
+    url:"${pageContext.request.contextPath}/index/selectUser",
+    type:"post",
+    dataType:"json",
+    success:function(data){
+    	/* var jsonData = JSON.stringify(data);
+    	alert(jsonData) */
+    	var userName = data.userName;
+    	var realName = data.realName;
+    	$("#userName").val(userName);
+    	$("#realName").val(realName);
+    }
+  });
+ }
+</script>
 </head>
 <body>
-   登陆成功
+   <div>
+      <table>
+         <tr>
+            <th>用户名:</th>
+            <td><input id="userName" name="userName" value="" type="text"/></td>
+            <th>真实姓名:</th>
+            <td><input id="realName" name="realName" value="" type="text"/></td>
+         </tr>
+         <tr>
+           <td><input id="queryUser" name="queryName" type="button" value="查询" onClick="queryUser()"/></td>
+         </tr>
+      </table>
+   </div>
 </body>
 </html>

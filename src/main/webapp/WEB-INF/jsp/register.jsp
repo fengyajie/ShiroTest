@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>注册</title>
-<script type="text/javascript" src="../js/jquery.min.js"></script>
-<script type="text/javascript" src="../js/jquery.js"></script>  
+<script  type="text/javascript" src="../js/jquery-3.3.1.js"></script>  
+ <script  type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
  <form method="post" id="userAdd">

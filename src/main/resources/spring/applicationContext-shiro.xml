@@ -44,8 +44,10 @@
                                                                                                        解决方法就是：需要将loginUrl的访问权限设置为authc！-->
 		       /refuse = anon
 		       /success = anon
+		       /register/registerJsp = anon
+		       /form/userAdd = anon
 		       /logout = logout
-		       /index/selectUser = authc,roles[admin]
+		       <!-- /index/selectUser = authc,roles[admin] -->
 		       <!--/**=authc 表示所有的url都需要权限认证，authc是shiro中一个过滤器的简写-->
 		       /** = user,perms,roles
 		     </value>

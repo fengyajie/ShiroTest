@@ -29,7 +29,7 @@ public class MyPermissionFactoryBean extends ShiroFilterFactoryBean{
 		for(SysResourceVo sysResourceVo:sysResourceVoList) {
 			definitions=definitions+sysResourceVo.getUrl()+" = " +"perms["+sysResourceVo.getPermission()+"]";
 		}
-		
+		System.out.println("--------------------------------------------------"+definitions);
 		Ini ini = new Ini();
         ini.load(definitions);
         //did they explicitly state a 'urls' section?  Not necessary, but just in case:

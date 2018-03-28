@@ -33,7 +33,7 @@ public class FormController {
 		SysUserVo sysUserVo = new SysUserVo();
 		sysUserVo.setUserName(userName);
 		List<SysUserVo> sysUserVoList = sysUserService.selectList(sysUserVo);
-		if(sysUserVoList == null || sysUserVoList.size() < 0){
+		if(sysUserVoList == null || sysUserVoList.size() <= 0){
 			String salt = RandomSaltUtil.randomSalt();
 			SysUser sysUser = new SysUser();
 			sysUser.setUserName(userName);
