@@ -41,8 +41,7 @@
                                                                                                       今天在进行登录页面开发时，发现点击登录后，无法完成登录校验，Debug发现程序根本不会进到FormAuthenticationFilter的executeLogin方法，百思不得其解。
                                                                                                       到后来查找各种资料，才发现，遗漏了一项配置。
                                                                                                     解决方法
-                                                                                                       解决方法就是：需要将loginUrl的访问权限设置为authc！比如我们的loginUrl为/login，那么我们需要在Shiro的FilterChainDefinitionMap中加入：
-                                           filterMap.put("/login", "authc");真是细节决定成败啊！-->
+                                                                                                       解决方法就是：需要将loginUrl的访问权限设置为authc！-->
 		       /refuse = anon
 		       /success = anon
 		       /logout = logout
