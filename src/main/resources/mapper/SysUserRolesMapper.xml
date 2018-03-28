@@ -8,12 +8,12 @@
 		
 		SELECT
 			sur.id,
-			sur.role_id as roleId
+			sur.role_ids as roleId
 			
 		FROM
 			sys_user_roles sur
 		<where>
-		<if test="userId != null and userId != ''">sur.user_id=#{userId}</if>
+		sur.user_id=#{userId}
 		</where>
 	</select>
 </mapper>

@@ -10,9 +10,9 @@
 			sre.id,
 			sre.permission
 		FROM
-			sys_resouce sre
+			sys_resource sre
 		<where>
-		<if test="id != null and id != ''">sr.id=#{id}</if>
+		sre.id=#{resourceId}
 		</where>
 	</select>
 </mapper>
