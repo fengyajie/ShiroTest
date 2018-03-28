@@ -61,4 +61,14 @@ public class SysResourceServiceImpl implements SysResourceService {
 		return sysResourceDao.selectById(id);
 	}
 
+	public List<SysResourceVo> findAll() {
+		List<SysResourceVo> sysResourceVoList = null;
+		try {
+			sysResourceVoList = sysResourceDao.findAll();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return sysResourceVoList;
+	}
+
 }

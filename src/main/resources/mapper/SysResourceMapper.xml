@@ -15,4 +15,17 @@
 		sre.id=#{resourceId}
 		</where>
 	</select>
+	
+	<select id="findAll" resultType="com.fyj.dto.SysResourceVo">
+		
+		SELECT
+			sre.id,
+			sre.permission,
+			sre.url
+		FROM
+			sys_resource sre
+	</select>
+	
+	
+	
 </mapper>
