@@ -25,6 +25,10 @@ import com.fyj.util.Md5Util;
 
 public class CustomRealm  extends AuthorizingRealm{
 
+	@Override
+	protected void clearCachedAuthorizationInfo(PrincipalCollection principals) {
+		super.clearCachedAuthorizationInfo(principals);
+	}
 	@Autowired
 	private SysUserService sysUserService;
 	
