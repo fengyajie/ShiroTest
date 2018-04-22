@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fyj.dao.SessionDao">
+  <resultMap id="BaseResultMap" type="com.fyj.entity.Sessions">
+    <id column="id" jdbcType="TINYINT" property="id" />
+    <result column="session" jdbcType="VARCHAR" property="session" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, session
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from session
+    where id = #{id,jdbcType=TINYINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from session
+    where id = #{id,jdbcType=TINYINT}
+  </delete>
+  <insert id="insert" parameterType="com.fyj.entity.Sessions">
+    insert into session (id, session)
+    values (#{id,jdbcType=TINYINT}, #{session,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fyj.entity.Sessions">
+    insert into session
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="session != null">
+        session,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=TINYINT},
+      </if>
+      <if test="session != null">
+        #{session,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fyj.entity.Sessions">
+    update session
+    <set>
+      <if test="session != null">
+        session = #{session,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=TINYINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fyj.entity.Sessions">
+    update session
+    set session = #{session,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=TINYINT}
+  </update>
+</mapper>
