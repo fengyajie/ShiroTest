@@ -25,9 +25,9 @@ public class MySessionDao extends CachingSessionDAO{
 			return;
 		}
 		Sessions sessions = new Sessions();
-		sessions.setId(Long.valueOf(session.getId().toString()));
+		sessions.setId(session.getId().toString());
 		try {
-			sessions.setSession(SerializableUtils.serializeToByteArray(sessions).toString());
+			sessions.setSession(SerializableUtils.serializeToByteArray(session).toString());
 		} catch (NotSerializableException e) {
 			e.printStackTrace();
 		}
@@ -46,9 +46,9 @@ public class MySessionDao extends CachingSessionDAO{
 		Serializable sessionId = generateSessionId(session);
 		assignSessionId(session,sessionId);
 		Sessions entity = new Sessions();
-		entity.setId(Long.valueOf(sessionId.toString()));
+		entity.setId(sessionId.toString());
 		try {
-			entity.setSession(SerializableUtils.serializeToByteArray(entity).toString());
+			entity.setSession(SerializableUtils.serializeToByteArray(session).toString());
 		} catch (NotSerializableException e) {
 			e.printStackTrace();
 		}
