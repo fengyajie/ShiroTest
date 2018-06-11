@@ -133,7 +133,7 @@ value="org.apache.shiro.SecurityUtils.setSecurityManager"/>
 	  <!-- 删除失效的session -->
 	  <property name="deleteInvalidSessions" value="true"/>
 	  <!-- 定义要使用的无效的Session定时调度器 -->
-       <!--  <property name="sessionValidationScheduler" ref="sessionValidationScheduler"/> -->
+       <property name="sessionValidationScheduler" ref="sessionValidationScheduler"/>
         <!-- 需要让此session可以使用该定时调度器进行检测 -->
         <property name="sessionValidationSchedulerEnabled" value="true"/>
         <!-- 定义Session可以进行序列化的工具类 -->
@@ -145,13 +145,13 @@ value="org.apache.shiro.SecurityUtils.setSecurityManager"/>
 	</bean>
 	
 	<!-- 配置session的定时验证检测程序类，以让无效的session释放 -->
-    <!-- <bean id="sessionValidationScheduler"
+     <bean id="sessionValidationScheduler"
         class="org.apache.shiro.session.mgt.ExecutorServiceSessionValidationScheduler">
-        设置session的失效扫描间隔，单位为毫秒
+        <!--  设置session的失效扫描间隔，单位为毫秒-->
         <property name="sessionValidationInterval" value="100000"/>
-        随后还需要定义有一个会话管理器的程序类的引用
+        <!-- 随后还需要定义有一个会话管理器的程序类的引用 -->
         <property name="sessionManager" ref="sessionManager"/>
-    </bean>  -->
+    </bean>
 <!-- Shiro生命周期处理器-->  
 <bean id="lifecycleBeanPostProcessor"   
 class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>  
