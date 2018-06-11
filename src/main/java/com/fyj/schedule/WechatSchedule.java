@@ -26,7 +26,8 @@ public class WechatSchedule {
 	@PostConstruct
 	public void postConstruct() {
 		init();
-		
+		Object data=null;
+		handleSysnc(data);
 	}
 	
 	public void handleSysnc(Object data) {
